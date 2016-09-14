@@ -1,0 +1,9 @@
+{
+  "body": {
+    "event-type": "not-found",
+    "payload-type": "resources",
+    "payload": {
+      "urls": []
+    }
+  }
+}

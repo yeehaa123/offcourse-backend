@@ -4,8 +4,22 @@ goog.require('cljs.core');
 goog.require('cljs.nodejs');
 app.core.AWS = cljs.nodejs.require.call(null,"aws-sdk");
 cljs.nodejs.enable_util_print_BANG_.call(null);
+app.core.to_clj = (function app$core$to_clj(js_obj){
+return cljs.core.js__GT_clj.call(null,js_obj,new cljs.core.Keyword(null,"keywordize-keys","keywordize-keys",1310784252),true);
+});
+app.core.create_api_event = (function app$core$create_api_event(raw_event){
+return new cljs.core.Keyword(null,"body","body",-2049205669).cljs$core$IFn$_invoke$arity$1(app.core.to_clj.call(null,raw_event));
+});
+app.core.to_event = (function app$core$to_event(p__15684){
+var map__15687 = p__15684;
+var map__15687__$1 = ((((!((map__15687 == null)))?((((map__15687.cljs$lang$protocol_mask$partition0$ & (64))) || (map__15687.cljs$core$ISeq$))?true:false):false))?cljs.core.apply.call(null,cljs.core.hash_map,map__15687):map__15687);
+var event_type = cljs.core.get.call(null,map__15687__$1,new cljs.core.Keyword(null,"event-type","event-type",319722813));
+var payload = cljs.core.get.call(null,map__15687__$1,new cljs.core.Keyword(null,"payload","payload",-383036092));
+return new cljs.core.PersistentVector(null, 2, 5, cljs.core.PersistentVector.EMPTY_NODE, [cljs.core.keyword.call(null,event_type),payload], null);
+});
 app.core.handler = (function app$core$handler(raw_event,context,cb){
-return cb.call(null,null,cljs.core.clj__GT_js.call(null,new cljs.core.PersistentArrayMap(null, 1, [new cljs.core.Keyword(null,"user-name","user-name",1302913545),"yeehaa"], null)));
+var event = app.core.to_event.call(null,app.core.create_api_event.call(null,raw_event));
+return cb.call(null,null,cljs.core.clj__GT_js.call(null,event));
 });
 goog.exportSymbol('app.core.handler', app.core.handler);
 app.core._main = (function app$core$_main(){
