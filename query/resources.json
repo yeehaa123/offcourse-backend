@@ -3,7 +3,9 @@
     "event-type": "not-found",
     "payload-type": "resources",
     "payload": {
-      "urls": []
+      "urls": [
+        "https://www.smashingmagazine.com/2014/07/dont-be-scared-of-functional-programming/"
+      ]
     }
   }
 }
