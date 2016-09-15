@@ -1,0 +1,9 @@
+{
+  "body": {
+    "event-type": "not-found",
+    "payload-type": "profile",
+    "payload": {
+      "auth-token": "123"
+    }
+  }
+}

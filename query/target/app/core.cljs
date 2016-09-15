@@ -15,8 +15,10 @@
   [(keyword event-type) payload])
 
 (defn ^:export handler [raw-event context cb]
-  (let [event (-> raw-event create-api-event to-event)]
-    (cb nil (clj->js event))))
+  (let [[event-type query] (-> raw-event create-api-event to-event)]
+    (if (:auth-token query)
+      (cb nil (clj->js [:found {:user-name "yeehaa"}]))
+      (cb nil (clj->js [:not-found query])))))
 
 (defn -main [] identity)
 (set! *main-cli-fn* -main)
